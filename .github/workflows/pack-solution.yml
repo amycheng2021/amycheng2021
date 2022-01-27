@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
 name: 'pack-solution'
-description: 'Power Platform Pack Solution'
+
 on:
   push:
     paths:
