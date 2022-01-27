@@ -1,0 +1,24 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+name: 'pack-solution'
+description: 'Power Platform Pack Solution'
+on:
+  push:
+    paths:
+      - contents/**
+  worflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: microsoft/powerplateform-actions/pack-solution@v0
+        with:
+          solution-file: out/contoso_university_core.zip
+          solution-folder: contents
+          solution-type: Both
+      - uses: actions/upload-artifact@v2
+        with:
+          name: packed-solution
+          path: out/
